@@ -10,14 +10,14 @@ export class AppComponent {
     {
       name: 'Yogesh',
       age: 24,
-      email: 'yogesh@example.com',
-      course: 'Computer Science'
+      email: 'yogesh@gmail.com',
+      course: 'MSC'
     },
     {
       name: 'Rudraksha',
       age: 23,
-      email: 'rudraksha@example.com',
-      course: 'Mechanical Engineering'
+      email: 'rudraksha@gmail.com',
+      course: 'BE'
     }
   ];
 
