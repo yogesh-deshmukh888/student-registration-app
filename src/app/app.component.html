@@ -1,5 +1,6 @@
 <h2>Registered Students</h2>
 <p *ngIf="students.length === 0">No students registered yet</p>
+
 <!-- Student Registration Form -->
 <form #studentForm="ngForm" (ngSubmit)="registerStudent()" novalidate>
   <label>Name:</label>
@@ -14,33 +15,33 @@
   <label>Course:</label>
   <input type="text" [(ngModel)]="student.course" name="course" required class="form-control" />
 
+  <label>Grade:</label>
+  <input type="text" [(ngModel)]="student.grade" name="grade" required class="form-control" />
+
   <!-- ✅ Submit Button -->
   <button type="submit" class="btn btn-primary mt-2" [disabled]="!studentForm.form.valid">
     Register
   </button>
 </form>
 
-
-<table *ngIf="students.length > 0" class="table table-bordered">
+<!-- Student Table -->
+<table *ngIf="students.length > 0" class="table table-bordered mt-3">
   <tr>
     <th>Name</th>
     <th>Age</th>
     <th>Email</th>
     <th>Course</th>
+    <th>Grade</th>
     <th>Action</th>
   </tr>
 
-  
   <tr *ngFor="let student of students; let i = index">
     <td>{{ student.name }}</td>
     <td>{{ student.age }}</td>
     <td>{{ student.email }}</td>
     <td>{{ student.course }}</td>
+    <td [ngClass]="getGradeColor(student.grade)">{{ student.grade }}</td>
+
     <td><button (click)="deleteStudent(i)" class="btn btn-danger">Delete</button></td>
   </tr>
 </table>
-
-<button type="submit" class="btn btn-primary mt-2" [disabled]="!studentForm.form.valid">
-  Register
-</button>
-
